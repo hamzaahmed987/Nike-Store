@@ -1,0 +1,11 @@
+Test Case ID,Category,Description,Steps,Expected Result,Actual Result,Status,Remarks
+TC001,Functional,Verify product listing,Open homepage > Navigate to product section,Products should be displayed correctly,Products displayed as expected,Passed,None
+TC002,Functional,Check search functionality,Enter a product name in search bar > Click search,Relevant products should appear,Relevant products appeared,Passed,None
+TC003,Functional,Test checkout process,Add items to cart > Proceed to checkout > Complete payment,Order should be placed successfully,Order placed successfully,Passed,None
+TC004,Performance,Analyze page load speed,Open homepage and measure load time,Load time should be under 3 seconds,Load time 2.8 seconds,Passed,Optimized images for faster load
+TC005,Performance,Test API response time,Make a request to API and measure response time,Response time should be under 1 second,Response time 0.9 seconds,Passed,Efficient API queries implemented
+TC006,Security,Validate login authentication,Enter valid credentials and log in,User should be logged in,User logged in successfully,Passed,Implemented secure authentication
+TC007,Security,Check for SQL injection,Try entering " OR 1=1 -- in input fields,Should reject SQL injection attempt,Input rejected,Passed,Input validation enabled
+TC008,Security,Ensure HTTPS is enabled,Open site URL and check for HTTPS,Site should be accessible via HTTPS,HTTPS enabled,Passed,SSL certificate active
+TC009,Responsiveness,Test mobile layout,Open site on mobile device > Check UI,Layout should be responsive,Responsive layout displayed,Passed,None
+TC010,Responsiveness,Verify tablet layout,Open site on tablet > Check UI,Elements should adjust properly,Elements adjusted properly,Passed,None
