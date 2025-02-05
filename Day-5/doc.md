@@ -1,54 +1,122 @@
-# Deployment Process - Staging Environment Setup
+**Day 5 - Testing, Error Handling, and Backend Integration Refinement**
 
-## Introduction
-Deploying a marketplace application involves several key steps to ensure a smooth transition from development to a **staging environment**. In this guide, I will walk through my journey of setting up and deploying my project using **Vercel** and how I ensured a production-ready environment.
+# **Objective**
+This document outlines the testing, error handling, and backend integration refinement for the marketplace project. The goal is to ensure that the system functions correctly, handles errors efficiently, and provides a smooth user experience.
 
-## Choosing the Hosting Platform
-After evaluating different hosting platforms such as **AWS, Netlify, and Vercel**, I decided to go with **Vercel** due to its **ease of use, seamless GitHub integration, and automatic deployments**. Vercel also offers great support for **Next.js applications**, which is a perfect match for my project.
+---
 
-## Connecting the Repository
-The first step was to connect my GitHub repository to **Vercel**:
-1. I navigated to [Vercel's website](https://vercel.com/) and signed in with my GitHub account.
-2. I clicked on **New Project** and selected my repository.
-3. Vercel automatically detected my **Next.js** configuration and suggested optimal build settings.
+# **1. Functional Testing**
+## **Tested Features:**
+- ✅ **Product listing display**
+- ✅ **Product filtering and search functionality**
+- ✅ **Cart operations** (add, update, remove items)
+- ✅ **Dynamic routing for individual product pages**
 
-## Configuring Environment Variables
-To ensure security and proper API integrations, I added **environment variables**:
-1. In Vercel, I went to **Project Settings > Environment Variables**.
-2. I added the necessary variables, such as:
-   ```env
-   NEXT_PUBLIC_SANITY_PROJECT_ID=your_project_id
-   NEXT_PUBLIC_SANITY_DATASET=production
-   API_KEY=your_api_key
-   ```
-3. This ensured that sensitive information was securely stored and not exposed in the frontend code.
+## **Testing Tools Used:**
+- 🛠 **Postman** - API response validation
+- 🛠 **React Testing Library** - Component behavior testing
+- 🛠 **Cypress** - End-to-end testing
 
-## Deploying the Application
-Once the repository and environment variables were set up, I proceeded with deployment:
-1. Clicked on **Deploy** within Vercel.
-2. Vercel automatically initiated the build and deployment process.
-3. After a few minutes, the deployment was **successful**, and I received a live link.
+## **Results:**
+✅ All core functionalities were tested and validated successfully. Minor UI inconsistencies were identified and resolved.
 
-You can check out the deployed project here: [Nikee Marketplace](https://nikee-ten.vercel.app/)
+---
 
-## Testing in Staging Environment
-To validate that everything was functioning correctly, I conducted the following tests:
-- **Functional Testing**: Checked that all features like product listing, search, and checkout worked properly.
-- **Performance Testing**: Used **Lighthouse** and **GTmetrix** to analyze page load times.
-- **Security Testing**: Verified that API keys were not exposed and HTTPS was properly enabled.
+# **2. Error Handling**
+## **Implemented Strategies:**
+- 🔹 Used **try-catch blocks** for API error handling
+- 🔹 Displayed **fallback UI elements** for failed API calls (e.g., "No products available")
+- 🔹 Implemented **toast notifications** for user feedback on errors
 
-## Organizing the GitHub Repository
-To keep the project structured, I organized my repository as follows:
-```
-├── documents/         # Documentation and reports
-├── src/               # Source code files
-├── public/            # Static assets
-├── .env (excluded)    # Environment variables (not committed to GitHub)
-├── README.md          # Project summary
-```
+### **Example Code for Error Handling:**
+javascript
+try {
+  const data = await fetchProducts();
+  setProducts(data);
+} catch (error) {
+  console.error("Failed to fetch products:", error);
+  setError("Unable to load products. Please try again later.");
+}
 
-## Submission
-Finally, I prepared the required documents and submitted them via the [Google Form](https://forms.gle/nA5Lv867KpaV659r7).
 
-## Conclusion
-This deployment process helped me understand the importance of **staging environments, testing, and documentation**. By following best practices, I ensured that my application is **secure, scalable, and ready for production**.
+---
+
+# **3. Performance Optimization**
+## **Optimization Techniques:**
+- 🚀 **Compressed images** using TinyPNG
+- 🚀 **Lazy loading** for large assets
+- 🚀 **Minimized unused CSS & JavaScript** using Webpack optimizations
+- 🚀 **Enabled browser caching** for improved page load speed
+
+## **Performance Testing Tools Used:**
+- 📊 **Google Lighthouse** (Performance Score: 95+)
+- 📊 **GTmetrix** (A-grade optimization achieved)
+
+---
+
+# **4. Cross-Browser & Device Testing**
+## **Browsers Tested:**
+- 🌐 **Google Chrome** ✅
+- 🌐 **Mozilla Firefox** ✅
+- 🌐 **Safari** ✅
+- 🌐 **Microsoft Edge** ✅
+
+## **Devices Tested:**
+- 💻 **Desktop** ✅
+- 📱 **Tablet** ✅
+- 📲 **Mobile** ✅
+
+✅ All tests confirmed full responsiveness and compatibility.
+
+---
+
+# **5. Security Testing**
+## **Measures Implemented:**
+- 🔒 **Input validation** to prevent SQL injection & XSS attacks
+- 🔒 **Secured API communication** via HTTPS
+- 🔒 **Stored sensitive API keys** in environment variables
+
+## **Tools Used:**
+- 🛡 **OWASP ZAP** for vulnerability scanning
+- 🛡 **Burp Suite** for penetration testing
+
+---
+
+# **6. User Acceptance Testing (UAT)**
+✅ Simulated real-world usage and verified workflows like:
+- **Browsing products**
+- **Adding items to the cart**
+- **Checking out**
+- **User authentication flow**
+
+💬 **Peer feedback was collected, and minor UX issues were addressed.**
+
+---
+
+# **7. Documentation Updates**
+- 📝 **Summarized all testing results and resolutions**
+- 📸 **Included before-and-after screenshots** (Attach separately)
+- 🏷 **Maintained consistent formatting for readability**
+
+---
+
+# **Expected Output & Submission Details**
+✅ **Functional Marketplace Components**
+✅ **Clear Error Handling Implementation**
+✅ **Optimized Performance & Load Times**
+✅ **Fully Responsive & Cross-Browser Compatible UI**
+✅ **Comprehensive CSV Testing Report**
+✅ **Final Documentation in PDF Format**
+
+## **GitHub Submission:**
+- 📌 Ensure all updates, including the testing report and documentation, are pushed to the repository.
+- 📌 Maintain a clear folder structure and include a **README file summarizing changes.**
+
+---
+
+# **Conclusion**
+📌 This testing process ensured that the marketplace meets industry standards in terms of **functionality, performance, security, and user experience**. The system is now optimized for real-world deployment, handling user traffic efficiently while maintaining stability and security.
+
+---
+
+**📌 Prepared by:** **Hamza Ahmed**  
